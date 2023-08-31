@@ -4,13 +4,10 @@
 
 This repository contains the implementation for '[CaPTURe: Cartoon Pose Transfer Using Reverse Attention](https://www.sciencedirect.com/science/article/abs/pii/S0925231223007427?via%3Dihub)', An and Choi, Nuerocomputing, 2023
 
-**CaPTURe** is an image-based pose trasnfer network that address the limitations of the previous pose transfer methods. The limitations include that the previous networks have to use joint keypoints of target pose by pre-trained pose estimation network on the human domain.
+![](./src/CaPTURe.png)
+![](./src/attention_module.png)
 
-![](./src/CaPTURE_Demo1.gif)
-![](./src/CaPTURE_Demo2.gif)
-![](./src/CaPTURE_Demo3.gif)
-![](./src/CaPTURE_Demo4.gif)
-![](./src/CaPTURE_Demo5.gif)
+**CaPTURe** is an image-based pose trasnfer network that address the limitations of the previous pose transfer methods. The limitations include that the previous networks have to use joint keypoints of target pose by pre-trained pose estimation network on the human domain.
 
 ## Prerequisites
 - python 3.8+
