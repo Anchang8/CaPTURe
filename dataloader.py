@@ -26,7 +26,7 @@ def get_dloader(transform, cfg):
 
 def get_val_dloader(transform, shuffle, cfg):
     dset_cfg = cfg["dataset_config"]
-    if 'fashion' in dset_cfg.dataset_path:
+    if 'fashion' in dset_cfg.dataset_path.lower():
         dataset = FashionDataset(cfg, transform, test=True)
     else:
         dataset = MaximoDataset(cfg, transform, test=True)
