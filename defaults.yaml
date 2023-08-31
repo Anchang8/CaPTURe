@@ -1,0 +1,67 @@
+main_config:
+  result_path: ./result/
+  result_title: ""
+  interval: 10
+  model_path: ./CheckPoint0/
+  init: xavier
+  save_minimum_epoch: 200
+
+dataset_config:
+  dataset_path: ./Fashion_Dataset
+  num_workers: 4
+  batch_size: 4
+
+#models options
+generator_config:
+  idenE_config:
+    downs: 4
+    c_in: 3
+    c: 64
+    min_ch: 256
+    in_norm: False
+    pad_type: zeros
+
+  poseE_config:
+    downs: 4
+    c_in: 3
+    c: 64
+    min_ch: 256
+    enc_adain_layers: [-1] # Layer number to use AdaIN or attention module in the encoder.
+    enc_attn_layers: [-1]
+    in_norm: True
+    conv_num: 0
+    res2: False # Encode the pose feature to the size of 2x2.
+    pad_type: zeros
+
+  dec_config:
+    min_ch: 256
+    dec_adain_layers: [1, 2, 3]
+    dec_attn_layers: [0] # Layer number to use attention module in the decoder.
+    t: 16
+    res2: False
+
+discriminator_config:
+  disc_downs: 3
+  n_res: 2
+  c_in: 3
+  c: 64
+  norm: none
+  bias: True
+  w_norm: spectral
+  activ: lrelu
+  pad_type: reflect
+
+#train options
+train_config:
+  num_epochs: 250
+  seed: 777
+  adam_betas: [0.5, 0.999]
+  lr_G: 0.0001
+  lr_D: 0.0001
+
+# losses options
+loss_config:
+  ganLoss_type: BCE
+  dis_ganLoss_weight: 1.0
+  gen_ganLoss_weight: 1.0
+  gen_reconLoss_weight: 15.0
